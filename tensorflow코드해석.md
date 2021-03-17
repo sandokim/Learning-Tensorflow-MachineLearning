@@ -29,3 +29,43 @@ test data는 shuffle하지 않습니다.
 model.fit(x=train_batches, validation_data=valid_batches, epochs=10, verbose=2) 
 
 We are not specifying y which is our target data usually, and that's because when data is stored as a generator as we have here, the generator itself acutally contains the corresponding labels, so we do not need to specify them seperately whenever we call fit, because that actually contains within the generator itself.
+
+---
+
+**Shape 활용 (shape은 메서드가 아니고 속성값입니다)**
+
+What is the meaning of axis=-1 when a.shape = (19, 19, 5, 80)? And also what will be the output of keras.argmax(a, axis=-1) and keras.max(a, axis=-1)?
+
+This means that the index that will be returned by argmax will be taken from the last axis.
+
+Your data has some shape (19,19,5,80). This means:
+
+Axis 0 = 19 elements
+
+Axis 1 = 19 elements
+
+Axis 2 = 5 elements
+
+Axis 3 = 80 elements
+
+Now, negative numbers work exactly like in python lists, in numpy arrays, etc. Negative numbers represent the inverse order:
+
+Axis -1 = 80 elements
+
+Axis -2 = 5 elements
+
+Axis -3 = 19 elements
+
+Axis -4 = 19 elements
+
+When you pass the axis parameter to the argmax function, the indices returned will be based on this axis. Your results will lose this specific axes, but keep the others.
+
+See what shape argmax will return for each index:
+
+K.argmax(a,axis= 0 or -4) returns (19,5,80) with values from 0 to 18
+
+K.argmax(a,axis= 1 or -3) returns (19,5,80) with values from 0 to 18
+
+K.argmax(a,axis= 2 or -2) returns (19,19,80) with values from 0 to 4
+
+K.argmax(a,axis= 3 or -1) returns (19,19,5) with values from 0 to 79
