@@ -1,6 +1,6 @@
 ## **Tensorflow 코드를 자세히 해석합니다**
 
-model.fit(x=scaled_train_samples, y=train_lables, batch_size=10, epchos=30, shuffle=True, verbose=2)
+model.fit(x=scaled_train_samples, y=train_labels, batch_size=10, epchos=30, shuffle=True, verbose=2)
 
 default로 shuffle=True로 설정되어있어 train data(짝을 이루는 데이터 scaled_train_samples 와 train_labels)는 무작위로 섞이게 하여 머신이 데이터 순서에 대한 학습을 하지 못하도록 설정합니다.
 
@@ -23,3 +23,9 @@ accuracy는 모델의 정확도를 측정하고 val_accuarcy는 그 모델이 ge
 **test_data는 validation이후 앞으로 기대되는 모델의 성능(prediction) 을 한번 더 확인하기 위해 사용합니다.**
 
 test data는 shuffle하지 않습니다.
+
+---
+
+model.fit(x=train_batches, validation_data=valid_batches, epochs=10, verbose=2) 
+
+We are not specifying y which is our target data usually, and that's because when data is stored as a generator as we have here, the generator itself acutally contains the corresponding labels, so we do not need to specify them seperately whenever we call fit, because that actually contains within the generator itself.
