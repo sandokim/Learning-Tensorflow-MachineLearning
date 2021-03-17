@@ -18,4 +18,4 @@ accuracy는 모델의 정확도를 측정하고 val_accuarcy는 그 모델이 ge
 
 모델의 accuarcy는 높은데 val_accuracy가 낮다는 의미는 이 모델은 train data에 대해서만 모델이 너무 잘맞고 그 외에 데이터에는 잘 맞지 않는 overfitting이 일어난 것입니다.
 
-***따라서 accuracy와 val_accuracy 사이의 차이를 비교함으로써 overfitting 현상이 일어났는지 확인해볼 수 있습니다.***
+***따라서 accuracy와 val_accuracy 사이의 차이를 비교함으로써 overfitting 현상이 일어났는지 확인해 볼 수 있습니다.***
