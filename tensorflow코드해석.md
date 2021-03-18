@@ -22,7 +22,9 @@ accuracy는 모델의 정확도를 측정하고 val_accuarcy는 그 모델이 ge
 
 **test_data는 validation이후 앞으로 기대되는 모델의 성능(prediction) 을 한번 더 확인하기 위해 사용합니다.**
 
-test data는 shuffle하지 않습니다.
+---
+
+### test data는 shuffle하지 않습니다.
 
 ---
 
