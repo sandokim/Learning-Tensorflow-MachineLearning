@@ -69,3 +69,11 @@ K.argmax(a,axis= 1 or -3) returns (19,5,80) with values from 0 to 18
 K.argmax(a,axis= 2 or -2) returns (19,19,80) with values from 0 to 4
 
 K.argmax(a,axis= 3 or -1) returns (19,19,5) with values from 0 to 79
+
+---
+
+model.fit(x=train_batches, validation_data=valid_batches, epochs=5, **verbose=2**)
+
+**verbose=2** : We can the most comprehensive output from the model during training
+
+**verbose=0** : no output
