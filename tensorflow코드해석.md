@@ -24,11 +24,25 @@ accuracy는 모델의 정확도를 측정하고 val_accuarcy는 그 모델이 ge
 
 ---
 
-### test data는 shuffle하지 않습니다.
+# The way of using ImageDataGenerator function 
 
-test_batches = ImageDataGenerator(preprocessing_function=tf.keras.applications.mobilnenet.preprocess_input).flow_from_directory(directory=test_path, target_size=(224,224), batch_size=10, **shuffle=False**)
+## 1.Take Data from the directory
+
+test_batches = **ImageDataGenerator**(preprocessing_function=tf.keras.applications.mobilnenet.preprocess_input).flow_from_directory(
+
+directory=test_path, target_size=(224,224), batch_size=10, **shuffle=False**)
 
 We set **shuffle=False** so that we can later appropriately plot our prediction results to a ***confusion matrix!!***
+
+***test data는 shuffle하지 않습니다.***
+
+---
+
+## 2.Data Augmentation
+
+gen = **ImageDataGenerator**(rotation_range=10, width_shift_range=0.1, height_shift_range=0.1, shear_range=0.15, zoom_range=0.1, channel_shift_range=10., horizontal_flip=True)
+
+---
 
 ---
 
