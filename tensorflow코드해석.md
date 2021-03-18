@@ -82,7 +82,9 @@ model.fit(x=train_batches, validation_data=valid_batches, epochs=5, **verbose=2*
 
 **verbose=2** : We can the most comprehensive output from the model during training
 
-**verbose=0** : no output
+predictions = model.predict(x=test_batches, verbose=0)
+
+**verbose=0** : Setting verbose=0 because we do not want to see any output from the predictions.
 
 ---
 
